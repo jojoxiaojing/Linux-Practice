@@ -16,6 +16,7 @@ Section Structure:
 
 ## Command Synopsis
 |  Section | Meaning                                |
+| ------------- |:-------------:| 
 |[THING]   |  THING is optional                       |
 |<THING>   |  THING is mandatory (required)          |
 |THING ...  | THING can be repeated (limitlessly) |
