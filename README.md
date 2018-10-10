@@ -27,7 +27,7 @@ Here is the link to linux manual: https://linux.die.net/man/
 ### The shell
 One types commands to the shell, the command interpreter. It is not built-in, but is just a program and you can change your shell. The standard one is called sh. See also ash, bash, csh, zsh, chsh.
 
-* command prompt
+* **command prompt**
 it is the shell's way of indicating that it is ready for the next command.
 * **date** (that gives date and time)
 * **cal** (that gives a calendar).
