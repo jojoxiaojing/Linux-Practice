@@ -1,6 +1,6 @@
 # Linux-Practice
 
-## Linux Manual
+## Chapter 1 - Linux Manual
 
 Here is the link to linux manual: https://linux.die.net/man/
 
@@ -31,6 +31,8 @@ One types commands to the shell, the command interpreter. It is not built-in, bu
 it is the shell's way of indicating that it is ready for the next command.
 * **date** (that gives date and time)
 * **cal** (that gives a calendar).
+    cal 12 2017
+    cal -A 1 -B 1 12 2017
 * **ls** lists the contents of the current directory
 -l option it gives a long listing, that includes the owner and size and date of the file, and the permissions people have for reading and/or changing the file. 
 * **cat** will show the contents of a file. (The name is from "concatenate and print")
@@ -43,13 +45,11 @@ it is the shell's way of indicating that it is ready for the next command.
 Pathname described the path from the root of the tree (which is called /) to the file. 
 
 * **pwd** prints the current directory.
-
 * **cd** changes the current directory. 
 
 ### Directories
 * **mkdir** makes a new directory.
 * **rmdir** removes a directory if it is empty, and complains otherwise.
-
 * **find** (with a rather baroque syntax) will find files with given name or other properties. For example, "find . -name tel" would find the file "tel" starting in the present directory (which is called "."). And "find / -name tel" would do the same, but starting at the root of the tree. Large searches on a multi-GB disk will be time-consuming, and it may be better to use locate(1).
 
 ### Disks and filesystems
@@ -64,4 +64,18 @@ On a UNIX system many user and system processes run simultaneously. The one you 
 * **kill** allows you to get rid of them. Without option this is a friendly request: please go away. 
 * **kill -9** followed by the number of the process is an immediate kill. 
 * Foreground processes can often be killed by typing Control-C.
+
+### Getting information
+**man** pages, (like this one), so that the command "man kill" will document the use of the command "kill" . The program man sends the text through some pager, usually less. Hit the **space bar** to get the next page, hit **q** to quit.
+
+```
+Question: How would you open the manual page for a command called updatedb  from section 8 of the manual?
+
+Answer: man 8 updatedb
+```
+
+## Chapter 2 - Linux Input and Output
+### Standard input and output
+### Redirection
+### Piping
 
