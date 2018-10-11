@@ -39,4 +39,29 @@ it is the shell's way of indicating that it is ready for the next command.
 * **rm** (from "remove") deletes the file, and be careful! it is gone. No wastepaper basket or anything. Deleted means lost.
 * **grep** (from "g/re/p") finds occurrences of a string in one or more files. 
 
+### Pathnames and the current directory
+Pathname described the path from the root of the tree (which is called /) to the file. 
+
+* **pwd** prints the current directory.
+
+* **cd** changes the current directory. 
+
+### Directories
+* **mkdir** makes a new directory.
+* **rmdir** removes a directory if it is empty, and complains otherwise.
+
+* **find** (with a rather baroque syntax) will find files with given name or other properties. For example, "find . -name tel" would find the file "tel" starting in the present directory (which is called "."). And "find / -name tel" would do the same, but starting at the root of the tree. Large searches on a multi-GB disk will be time-consuming, and it may be better to use locate(1).
+
+### Disks and filesystems
+* **mount** will attach the file system found on some disk (or floppy, or CDROM or so) to the big file system hierarchy. 
+* **umount** detaches it again. 
+* **df** will tell you how much of your disk is still free.
+
+### Processes
+On a UNIX system many user and system processes run simultaneously. The one you are talking to runs in the **foreground**, the others in the **background**. 
+
+* **ps** will show you which processes are active and what numbers these processes have. 
+* **kill** allows you to get rid of them. Without option this is a friendly request: please go away. 
+* **kill -9** followed by the number of the process is an immediate kill. 
+* Foreground processes can often be killed by typing Control-C.
 
