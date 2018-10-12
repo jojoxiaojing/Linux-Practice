@@ -1,44 +1,6 @@
-<style type="text/css">
-body {
-    counter-reset: h1
-}
-
-h1 {
-    counter-reset: h2
-}
-
-h2 {
-    counter-reset: h3
-}
-
-h3 {
-    counter-reset: h4
-}
-
-h1:before {
-    counter-increment: h1;
-    content: counter(h1) ". "
-}
-
-h2:before {
-    counter-increment: h2;
-    content: counter(h1) "." counter(h2) ". "
-}
-
-h3:before {
-    counter-increment: h3;
-    content: counter(h1) "." counter(h2) "." counter(h3) ". "
-}
-
-h4:before {
-    counter-increment: h4;
-    content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "
-}
-
-</style>
 
 
-# Linux Manual and some basic commands
+# Chapter 1 - Linux Manual and some basic commands
 
 Here is the link to linux manual: https://linux.die.net/man/
 
@@ -112,7 +74,7 @@ Question: How would you open the manual page for a command called updatedb  from
 Answer: man 8 updatedb
 ```
 
-# Linux Input and Output
+# Chapter 1 - Linux Input and Output
 
 ## Input
 Input refers to any information that your program receives (or reads). Input to a Bash script can come from several different places:
