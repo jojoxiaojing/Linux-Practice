@@ -94,14 +94,14 @@ Output refers to any information that your program produces (or writes). Output 
 
 
 ### Standard input and output
+* 0 standard input
+* 1 standard output
+* 2 standard error
+
 ### Redirection
 Before a command is executed, its input and output may be redirected using a special notation interpreted by the shell.
-\> means overwirting 
-\>> means append to the original file
-
-0 standard input
-1 standard output
-2 standard error
+* \> means overwirting 
+* \>> means append to the original file
 
 \> is used to redirect the output, such as we can redirect the result into a file
 
@@ -162,11 +162,52 @@ $ cat 0< input.txt > /dev/pts/1
 
 ### Piping
 
+* Piping connects STDOUT of one command to the STDIN of another.
+* Redirection of STDOUT breaks pipelines.
+* To save a data "snapshot" without breaking pipelines, use the tee command.
+* If a command doesn't accept STDIN, but you want to pipe to it, use xargs.
+
+```
+date | cut -- delimiter " " --fields 1
+date | cut -- delimiter " " --fields 1 > today.txt
+date | cut > today.txt --delimiter " " --fields 1 #the order of > today.txt does not matter
+```
+
+combine piping
+
+```
+date | tee fulldate.text | cut --delimiter=" " --field=1
+date | tee fulldate.text | cut --delimiter=" " --field=1 >today.txt
+```
+
+how to pipe some commands that do not accept standard input, such as echo
+
+```
+date | xargs echo
+: Mon 16 Oct ...
+date | xargs echo "hello"
+: hello Mon 16 Oct....
+```
+How to delete the files with name inside a file: use xargs
+
+```
+cat filestododelete.txt
+: fulldate.txt
+: today.txt
+cat filestododelete.txt | xargs rm
+```
+
+
+
+
+
 ## Parameters
 
-```l
+```linux
 $ varname=vardata
 #Cannot use spaces around the = sigm
 ```
+
+
 
 
