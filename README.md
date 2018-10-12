@@ -168,16 +168,16 @@ $ cat 0< input.txt > /dev/pts/1
 * If a command doesn't accept STDIN, but you want to pipe to it, use xargs.
 
 ```
-date | cut -- delimiter " " --fields 1
-date | cut -- delimiter " " --fields 1 > today.txt
-date | cut > today.txt --delimiter " " --fields 1 #the order of > today.txt does not matter
+date | cut -d " " -f 1
+date | cut -d " " -f 1 > today.txt
+date | cut > today.txt -d " " -f 1 #the order of > today.txt does not matter
 ```
 
 combine piping
 
 ```
-date | tee fulldate.text | cut --delimiter=" " --field=1
-date | tee fulldate.text | cut --delimiter=" " --field=1 >today.txt
+date | tee fulldate.text | cut -d " " -f 1
+date | tee fulldate.text | cut -d " " -f 1 >today.txt
 ```
 
 how to pipe some commands that do not accept standard input, such as echo
@@ -195,6 +195,20 @@ cat filestododelete.txt
 : fulldate.txt
 : today.txt
 cat filestododelete.txt | xargs rm
+```
+
+## alias
+
+in .bash_profile (for mac) .bash_aliases(for linux)， edit and save
+
+```
+$ cd ~
+$ nano .bash_profile
+$ source ~/.bash_profile
+```
+
+```
+alias getdates='date | tee /Users/Jojo/Documents/Project/7.\ Linux\ Pratice/fulldate.txt | cut -d " " -f 1 | tee /Users/Jojo/Documents/Project/7.\ Linux\ Pratice/shortdate.txt | xargs echo hello'
 ```
 
 
