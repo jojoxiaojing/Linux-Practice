@@ -75,7 +75,98 @@ Answer: man 8 updatedb
 ```
 
 ## Chapter 2 - Linux Input and Output
+
+### Input
+Input refers to any information that your program receives (or reads). Input to a Bash script can come from several different places:
+
+* Command-line arguments (which are placed in the positional parameters)
+* Environment variables, inherited from whatever process started the script
+* Files
+* Anything else a File Descriptor can point to (pipes, terminals, sockets, etc.). This will be discussed below.
+
+### Output
+Output refers to any information that your program produces (or writes). Output from a Bash script can also go to lots of different places:
+
+* Files
+* Anything else a File Descriptor can point to
+* Command-line arguments to some other program
+* Environment variables passed to some other program
+
+
 ### Standard input and output
 ### Redirection
+Before a command is executed, its input and output may be redirected using a special notation interpreted by the shell.
+\> means overwirting 
+\>> means append to the original file
+
+0 standard input
+1 standard output
+2 standard error
+
+\> is used to redirect the output, such as we can redirect the result into a file
+
+```
+$ cat 1> output.txt
+Linux is amazing
+ctrl + c
+```
+or
+
+```
+$ cat > output.txt
+Linux is amazing
+ctrl + c
+```
+
+or
+
+we can also redirect the error into a file
+
+```
+$ cat -k bla 2>> error.txt
+```
+
+or
+
+We can redirect standard output and error in the same time
+
+```
+$ cat 1>> output.txt 2>>error.txt
+Linux is amazing!
+ctrl + C
+```
+
+How to use redirect to read from a file
+
+```l
+$ cat > input.txt
+Hello World!
+Ctrl + C
+
+$ cat < input.txt
+Hello World!
+```
+
+How to redirect between 2 windows
+
+```l
+#Open a new window
+#Input $ tty, and it will return the code of this window
+$ tty
+/dev/pts/1
+
+#In another window
+$ cat 0< input.txt > /dev/pts/1
+```
+
+
 ### Piping
+
+## Parameters
+
+```l
+$ varname=vardata
+#Cannot use spaces around the = sigm
+```
+
 
