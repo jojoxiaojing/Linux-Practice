@@ -1,10 +1,48 @@
-# Linux-Practice
+<style type="text/css">
+body {
+    counter-reset: h1
+}
 
-## Chapter 1 - Linux Manual
+h1 {
+    counter-reset: h2
+}
+
+h2 {
+    counter-reset: h3
+}
+
+h3 {
+    counter-reset: h4
+}
+
+h1:before {
+    counter-increment: h1;
+    content: counter(h1) ". "
+}
+
+h2:before {
+    counter-increment: h2;
+    content: counter(h1) "." counter(h2) ". "
+}
+
+h3:before {
+    counter-increment: h3;
+    content: counter(h1) "." counter(h2) "." counter(h3) ". "
+}
+
+h4:before {
+    counter-increment: h4;
+    content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "
+}
+
+</style>
+
+
+# Linux Manual and some basic commands
 
 Here is the link to linux manual: https://linux.die.net/man/
 
-### Section Structure
+## Section Structure
 * Section 1: user commands (introduction)
 * Section 2: system calls (introduction)
 * Section 3: library functions (introduction)
@@ -14,7 +52,7 @@ Here is the link to linux manual: https://linux.die.net/man/
 * Section 7: conventions and miscellany (introduction)
 * Section 8: administration and privileged commands (introduction)
 
-### Command Synopsis
+## Command Synopsis
 |  Section      | Meaning                              |
 | ------------- |:-------------:                       | 
 |[THING]        |  THING is optional                   |
@@ -24,7 +62,7 @@ Here is the link to linux manual: https://linux.die.net/man/
 |*THING*        | [Notice the Italics] Replace THING   |
 
 
-### The shell
+## The shell
 One types commands to the shell, the command interpreter. It is not built-in, but is just a program and you can change your shell. The standard one is called sh. See also ash, bash, csh, zsh, chsh.
 
 * **command prompt**
@@ -41,23 +79,23 @@ it is the shell's way of indicating that it is ready for the next command.
 * **rm** (from "remove") deletes the file, and be careful! it is gone. No wastepaper basket or anything. Deleted means lost.
 * **grep** (from "g/re/p") finds occurrences of a string in one or more files. 
 
-### Pathnames and the current directory
+## Pathnames and the current directory
 Pathname described the path from the root of the tree (which is called /) to the file. 
 
 * **pwd** prints the current directory.
 * **cd** changes the current directory. 
 
-### Directories
+## Directories
 * **mkdir** makes a new directory.
 * **rmdir** removes a directory if it is empty, and complains otherwise.
 * **find** (with a rather baroque syntax) will find files with given name or other properties. For example, "find . -name tel" would find the file "tel" starting in the present directory (which is called "."). And "find / -name tel" would do the same, but starting at the root of the tree. Large searches on a multi-GB disk will be time-consuming, and it may be better to use locate(1).
 
-### Disks and filesystems
+## Disks and filesystems
 * **mount** will attach the file system found on some disk (or floppy, or CDROM or so) to the big file system hierarchy. 
 * **umount** detaches it again. 
 * **df** will tell you how much of your disk is still free.
 
-### Processes
+## Processes
 On a UNIX system many user and system processes run simultaneously. The one you are talking to runs in the **foreground**, the others in the **background**. 
 
 * **ps** will show you which processes are active and what numbers these processes have. 
@@ -65,7 +103,7 @@ On a UNIX system many user and system processes run simultaneously. The one you 
 * **kill -9** followed by the number of the process is an immediate kill. 
 * Foreground processes can often be killed by typing Control-C.
 
-### Getting information
+## Getting information
 **man** pages, (like this one), so that the command "man kill" will document the use of the command "kill" . The program man sends the text through some pager, usually less. Hit the **space bar** to get the next page, hit **q** to quit.
 
 ```
@@ -74,9 +112,9 @@ Question: How would you open the manual page for a command called updatedb  from
 Answer: man 8 updatedb
 ```
 
-## Chapter 2 - Linux Input and Output
+# Linux Input and Output
 
-### Input
+## Input
 Input refers to any information that your program receives (or reads). Input to a Bash script can come from several different places:
 
 * Command-line arguments (which are placed in the positional parameters)
@@ -84,7 +122,7 @@ Input refers to any information that your program receives (or reads). Input to 
 * Files
 * Anything else a File Descriptor can point to (pipes, terminals, sockets, etc.). This will be discussed below.
 
-### Output
+## Output
 Output refers to any information that your program produces (or writes). Output from a Bash script can also go to lots of different places:
 
 * Files
@@ -93,12 +131,12 @@ Output refers to any information that your program produces (or writes). Output 
 * Environment variables passed to some other program
 
 
-### Standard input and output
+## Standard input and output
 * 0 standard input
 * 1 standard output
 * 2 standard error
 
-### Redirection
+## Redirection
 Before a command is executed, its input and output may be redirected using a special notation interpreted by the shell.
 * \> means overwirting 
 * \>> means append to the original file
@@ -160,7 +198,7 @@ $ cat 0< input.txt > /dev/pts/1
 ```
 
 
-### Piping
+## Piping
 
 * Piping connects STDOUT of one command to the STDIN of another.
 * Redirection of STDOUT breaks pipelines.
@@ -201,7 +239,7 @@ cat filestododelete.txt | xargs rm
 
 
 
-## Parameters
+# Parameters
 
 ```linux
 $ varname=vardata
