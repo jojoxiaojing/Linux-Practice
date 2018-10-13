@@ -1,5 +1,6 @@
 
 
+
 # Chapter 1 - Linux Manual and some basic commands
 
 Here is the link to linux manual: https://linux.die.net/man/
@@ -74,7 +75,7 @@ Question: How would you open the manual page for a command called updatedb  from
 Answer: man 8 updatedb
 ```
 
-# Chapter 1 - Linux Input and Output
+# Chapter 2 - Linux Input and Output
 
 ## Input
 Input refers to any information that your program receives (or reads). Input to a Bash script can come from several different places:
@@ -211,7 +212,13 @@ $ source ~/.bash_profile
 alias getdates='date | tee /Users/Jojo/Documents/Project/7.\ Linux\ Pratice/fulldate.txt | cut -d " " -f 1 | tee /Users/Jojo/Documents/Project/7.\ Linux\ Pratice/shortdate.txt | xargs echo hello'
 ```
 
+## Exercise
 
+```
+ls /etc > file1.txt
+ls /run > file2.txt
+cat file1.txt file2.txt | tee unsorted.txt | sort -r unsorted.txt > reversed.txt
+```
 
 
 
